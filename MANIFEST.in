@@ -1,0 +1,9 @@
+global-exclude *.py[co]
+global-exclude __pycache__
+graft doc
+graft test
+graft via
+include LICENSE
+include MANIFEST.in
+include README.md
+prune docs/_build
