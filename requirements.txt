@@ -1,6 +1,8 @@
 atomicwrites==1.4.0
 attrs==19.3.0
+beautifulsoup4==4.9.1
 colorama==0.4.3
+google==2.0.3
 more-itertools==8.3.0
 packaging==20.4
 pluggy==0.13.1
@@ -9,4 +11,5 @@ pyparsing==2.4.7
 pytest==5.4.2
 redis==3.5.2
 six==1.15.0
+soupsieve==2.0.1
 wcwidth==0.2.3
