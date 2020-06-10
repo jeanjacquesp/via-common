@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+package serializer;
+option java_package = "org.paxsyriana.via.remote.serializer";
+
+message BrokerPost {
+    Meta meta = 1;
+    Finance finance = 2;
+    News news = 3;
+    Doc doc = 4;
+    Renditions renditions = 11;
+    repeated FeedbackDef feedback_definition = 12;
+
+    message Meta {
+        uint32 profile_id = 1;
+        uint32 subject_id = 2;
+        uint64 geoloc_id = 3;
+        uint64 item_id = 4;
+        uint32 version = 5;
+        uint64 updated = 6;
+        uint64 issued = 7;
+        uint32 status_id = 8;
+        string language = 9;
+    }
+
+    message FeedbackDef {
+        uint32 entry_id = 1;
+        uint32 widget_id = 2;
+        string label_en = 3;
+        string label_ar = 4;
+    }
+
+    message Finance {
+        string currency = 1;
+        repeated Price price = 2;
+
+        message Price {
+            uint64 item_id = 1;
+            float value = 2;
+            float variation = 3;
+            string label_en = 4;
+            string label_ar = 5;
+            string unit = 6;
+        }
+    }
+
+
+    message News {
+        string title = 1;
+        string headline = 2;
+        string body_json = 3;
+        string more_info = 4;
+        string contact_json = 5;
+    }
+
+    message Doc {
+        string title = 1;
+        string headline = 2;
+        string caption = 3;
+        string more_info = 4;
+    }
+
+    message Renditions {
+        Thumbnail thumbnail = 1;
+        repeated BodyMedia body_media = 2;
+
+        message Thumbnail {
+            bytes blob = 1;
+        }
+        message BodyMedia {
+            bytes blob = 1;
+            string format = 2;
+        }
+    }
+}
+
+
+message DevicePost {
+    uint32 profile_id = 1;
+    uint32 subject_id = 2;
+    string device_id = 3;
+    uint64 geoloc_id = 4;
+    uint64 last_news_id = 5;
+    uint64 last_finance_id = 6;
+    uint64 last_doc_id = 7;
+    Feedback feedback = 8;
+    message Feedback {
+        uint32 item_profile = 1;
+        uint64 item_id = 2;
+        uint32 item_version = 3;
+        string feedback_json = 4;
+    }
+}

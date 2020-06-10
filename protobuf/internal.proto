@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package serializer;
+option java_package = "org.paxsyriana.via.remote.serializer";
+
+
+message FromBroker {
+    uint64 message_id = 1;
+    uint64 item_id = 2;
+    uint32 item_version = 3;
+    string topic = 4;
+    bytes payload = 5;
+}
+
+message FromCMS {
+    uint64 message_id = 1;
+    uint32 profile_id = 2;
+    uint32 subject_id = 3;
+    uint64 item_id = 4;
+    uint32 item_version = 5;
+    bytes payload = 6;
+}
+
+

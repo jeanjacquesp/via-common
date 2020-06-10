@@ -1,9 +1,14 @@
 global-exclude *.py[co]
 global-exclude __pycache__
+global-exclude generated
+exclude log
 graft doc
-graft test
-graft via
+recursive-include test
+recursive-include via_common
 include LICENSE
+include CODE_OF_CONDUCT.md
 include MANIFEST.in
-include README.md
+include README.rst
+include requirements.txt
+include setup.py
 prune docs/_build
